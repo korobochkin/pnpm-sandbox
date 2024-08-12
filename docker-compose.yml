@@ -1,0 +1,9 @@
+services:
+  tools:
+    build:
+      context: ./
+      dockerfile: ./Dockerfile
+    init: true
+    tty: true
+    volumes:
+      - ./:/home/node/app/

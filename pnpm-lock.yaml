@@ -12,6 +12,15 @@ importers:
         specifier: ^2.37
         version: 2.37.0
 
+  packages/subscriptions:
+    dependencies:
+      auth0:
+        specifier: ^2.36.2
+        version: 2.37.0
+      axios:
+        specifier: ^0.24.0
+        version: 0.24.0
+
 packages:
 
   '@tootallnate/once@1.1.2':
@@ -73,6 +82,9 @@ packages:
 
   axios@0.21.4:
     resolution: {integrity: sha512-ut5vewkiu8jjGBdqpM44XxjuCjq9LAKeHVmoVfHVzy8eHgxxq8SbAVQNovDA8mVi05kP0Ea/n/UzcSHcTJQfNg==}
+
+  axios@0.24.0:
+    resolution: {integrity: sha512-Q6cWsys88HoPgAaFAVUb0WpPk0O8iTeisR9IMqy9G8AbO4NlpVknrnQS03zzF9PGAWgO3cgletO3VjV/P7VztA==}
 
   buffer-equal-constant-time@1.0.1:
     resolution: {integrity: sha512-zRpUiDwd/xk6ADqPMATG8vc9VPrkck7T07OIx0gnjmJAnHnTVXNQG3vfvWNuiZIkwu9KrKdA1iJKfsfTVxE6NA==}
@@ -474,6 +486,12 @@ snapshots:
       - supports-color
 
   axios@0.21.4(debug@4.3.6):
+    dependencies:
+      follow-redirects: 1.15.6(debug@4.3.6)
+    transitivePeerDependencies:
+      - debug
+
+  axios@0.24.0:
     dependencies:
       follow-redirects: 1.15.6(debug@4.3.6)
     transitivePeerDependencies:

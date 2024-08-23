@@ -1,4 +1,4 @@
-FROM node:20.11
+FROM node:22.7
 
 RUN npm install --global pnpm && \
     corepack enable pnpm

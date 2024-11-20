@@ -22,8 +22,13 @@ jobs:
           cache: pnpm
 
       - name: Install dependencies
-        run: pnpm install
+        run: pnpm install --frozen-lockfile
 
-      - name: List files
+      - name: Debug information for PNPM and Node
         run: |
-          ls ${{ github.workspace }}
+          echo $PNPM_HOME
+          ls -ah $PNPM_HOME
+          echo '-----------'
+          ls -ah ${{ github.workspace }}
+          echo '-----------'
+          ls -ah /

@@ -24,11 +24,31 @@ jobs:
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
-      - name: Debug information for PNPM and Node
+#      - name: Debug information for PNPM and Node
+#        run: |
+#          echo $PNPM_HOME
+#          ls -lah $PNPM_HOME
+#          echo "-----------"
+#          echo "content of /home/runner/setup-pnpm/node_modules/.bin/store/"
+#          ls -lah /home/runner/setup-pnpm/node_modules/.bin/store/
+#          echo "-----------"
+#          echo "content of /home/runner/setup-pnpm/"
+#          ls -lah /home/runner/setup-pnpm/
+#          echo "-----------"
+#          echo "content of /home/runner/setup-pnpm/node_modules/"
+#          echo "-----------"
+#          echo "content of github.workspace"
+#          ls -lah ${{ github.workspace }}
+
+      - name: Build an image
+        env:
+          ECR_REGISTRY: 'my_registry'
+          ECR_REPOSITORY: 'my_repository'
+          IMAGE_TAG: 'my_tag'
+          COMMIT: ${{ github.sha }}
         run: |
-          echo $PNPM_HOME
-          ls -ah $PNPM_HOME
-          echo '-----------'
-          ls -ah ${{ github.workspace }}
-          echo '-----------'
-          ls -ah /
+          docker build \
+            --file Dockerfile \
+            --tag $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG \
+            --build-arg COMMIT=$COMMIT \
+            .

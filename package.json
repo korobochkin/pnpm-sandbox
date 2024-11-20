@@ -9,6 +9,10 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "engines": {
+    "node": ">=20.11.1",
+    "pnpm": ">=9.0.0"
+  },
   "dependencies": {
     "auth0": "^4.8"
   }

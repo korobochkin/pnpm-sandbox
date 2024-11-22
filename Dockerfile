@@ -1,4 +1,4 @@
-FROM node:22.9
+FROM node:23.3
 
 ENV PNPM_HOME="/pnpm"
 RUN corepack enable pnpm
